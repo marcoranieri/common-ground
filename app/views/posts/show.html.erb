@@ -1,0 +1,39 @@
+<div class="page-header">
+  <%= link_to posts_path, class: 'btn btn-success btn-sm' do %>
+    All Posts
+  <% end %>
+  <%= link_to edit_post_path(@post), class: 'btn btn-warning btn-sm' do %>
+    Edit
+  <% end %>
+
+  <hr />
+
+  <h1>Show post</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @post.title %></dd>
+
+  <dt>Body:</dt>
+  <dd><%= @post.body %></dd>
+</dl>
+
+<hr />
+
+<h4>Comments</h4>
+
+<% if user_signed_in? %>
+  <%#= render partial: "comments/form", locals: { comment: @comment, commentable: @post } %>
+  <%= render partial: "comments/form", locals: { comment: Comment.new, commentable: @post } %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "login", new_user_session_path %> to comment
+<% end %>
+
+<%= turbo_stream_from @post, :comments %>
+
+<%= tag.div id: "#{dom_id(@post)}_comments" do %>
+  <%#= render @post.comments %>
+  <%= render partial: "comments/comment_with_replies", collection: @post.comments.where(parent_id: nil), as: :comment %>
+  <%#= render partial: "comments/comment_with_replies", collection: @post.comments, as: :comment %>
+<% end %>

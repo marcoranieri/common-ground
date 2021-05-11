@@ -1,0 +1,21 @@
+<!--
+<span class="mention">
+  <% if user&.github_username.present? %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{user.github_username}", class: "avatar-small"%>
+  <% else %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-small" %>
+  <% end %>
+
+  <%= user.username %>
+</span>
+-->
+
+<%= link_to profile_path(user), class: "mentions" do %>
+  <% if user&.github_username.present? %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{user.github_username}", class: "avatar-small"%>
+  <% else %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-small" %>
+  <% end %>
+
+  <%= user.username %>
+<% end %>

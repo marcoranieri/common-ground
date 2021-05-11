@@ -1,0 +1,42 @@
+<br>
+<br>
+
+<h2 class="profile-title text-center">
+  <div class="colors-loop">
+    <% if @user&.github_username.present? %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/#{@user.github_username}", class: "avatar-large colors-loop"%>
+    <% else %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-large colors-loop" %>
+    <% end %>
+  </div>
+
+  <p class="main-color">
+    <%= @user.username %>
+  </p>
+</h2>
+
+<style>
+  img.colors-loop {
+    animation: border-color-change 20s infinite;
+  }
+
+  @keyframes border-color-change {
+    0% { box-shadow: 0 0 5px 4px #264653; }
+    25% { box-shadow: 0 0 5px 4px #2a9d8f; }
+    50% { box-shadow: 0 0 5px 4px #e9c46a; }
+    75% { box-shadow: 0 0 5px 4px #f4a261; }
+    100% { box-shadow: 0 0 5px 4px #e76f51; }
+  }
+
+  /* p.colors-loop {
+    animation: color-change 20s infinite;
+  }
+
+  @keyframes color-change {
+    0% { color: #264653; }
+    25% { color: #2a9d8f; }
+    50% { color: #e9c46a; }
+    75% { color: #f4a261; }
+    100% { color: #e76f51; }
+  } */
+</style>

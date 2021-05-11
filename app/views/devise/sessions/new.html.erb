@@ -1,6 +1,6 @@
 <h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: "false"}) do |f| %>
   <div class="form-inputs">
     <%= f.input :email,
                 required: false,
@@ -18,3 +18,50 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+<!-- LOGIN Helper w/ avatars -->
+<button id="marco" class="btn btn-lg" style="border-radius:50px">
+  <%= image_tag "https://kitt.lewagon.com/placeholder/users/marcoranieri", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+</button>
+
+<button id="ife" class="btn btn-lg" style="border-radius:50px">
+  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ifeodugbesan", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+</button>
+
+<button id="ben" class="btn btn-lg" style="border-radius:50px">
+  <%= image_tag "https://kitt.lewagon.com/placeholder/users/fanninggg", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+</button>
+
+<button id="phelim" class="btn btn-lg" style="border-radius:50px">
+  <%= image_tag "https://kitt.lewagon.com/placeholder/users/pdunleav", class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+</button>
+
+<script>
+  let marco = {email: "marco@test.com", password: "123456"}
+  let ife = {email: "ife@test.com", password: "123456"}
+  let ben = {email: "ben@test.com", password: "123456"}
+  let phe = {email: "phelim@test.com", password: "123456"}
+
+  document.querySelector("#marco").addEventListener("click", () => {
+    document.querySelector("#user_email").value = marco.email
+    document.querySelector("#user_password").value = marco.password
+    document.querySelector("[type='submit']").click()
+  })
+  document.querySelector("#ife").addEventListener("click", () => {
+    document.querySelector("#user_email").value = ife.email
+    document.querySelector("#user_password").value = ife.password
+    document.querySelector("[type='submit']").click()
+  })
+  document.querySelector("#ben").addEventListener("click", () => {
+    document.querySelector("#user_email").value = ben.email
+    document.querySelector("#user_password").value = ben.password
+    document.querySelector("[type='submit']").click()
+  })
+  document.querySelector("#phelim").addEventListener("click", () => {
+    document.querySelector("#user_email").value = phe.email
+    document.querySelector("#user_password").value = phe.password
+    document.querySelector("[type='submit']").click()
+  })
+
+</script>
